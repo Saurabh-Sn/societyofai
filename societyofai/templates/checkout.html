@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+  <main >
+    <div class="container wow fadeIn">
+      <h2 class="my-5 h2 text-center">Checkout</h2>
+      <div class="row">
+        <div class="col-md-8 mb-4">
+          <div class="card">
+            <form method="POST" class="card-body">
+              {% csrf_token %}
+
+              <h3>Shipping address</h3>
+
+              <div class='hideable_shipping_form'>
+
+                <div class="md-form mb-5">
+                  <input type='text' placeholder='1234 Main St' id='shipping_address' name='shipping_address' class='form-control'  required/>
+                  <label for="shipping_address" class="">Address</label>
+                </div>
+
+                <div class="md-form mb-5">
+                  <input type='text' placeholder='Apartment or suite' id='shipping_address2' name='shipping_address2' class='form-control'  required/>
+                  <label for="shipping_address2" class="">Address 2 (optional)</label>
+                </div>
+                  <div class="md-form mb-5">
+                  <input type='text' placeholder='State'  name='shipping_state' class='form-control'  required/>
+                  <label >State*</label>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4 col-md-12 mb-4">
+                    <label >Country*</label>
+                    {{ form.shipping_country }}
+
+                  </div>
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <label for="shipping_zip">Zip*</label>
+                    <input type='text' placeholder='Zip code' id='shipping_zip' name='shipping_zip' class='form-control' required/>
+                    <div class="invalid-feedback">
+                      Zip code required.
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+
+
+
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Checkout</button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4 mb-4">
+          {% include "order_snippet.html" %}
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+{% endblock content %}
+
+

@@ -20,7 +20,7 @@
               <div class="view overlay">
                 {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top"> {% endcomment %}
                 <img src="{{ item.image.url }}" class="card-img-top">
-                <a href="{{ item.get_absolute_url }}">
+                <a href="{{ item.get_add_to_cart_url }}">
                   <div class="mask rgba-white-slight"></div>
                 </a>
               </div>
@@ -31,7 +31,7 @@
                 </a>
                 <h5>
                   <strong>
-                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title|title }}
+                    <a href="{{ item.get_add_to_cart_url }}" class="dark-grey-text">{{ item.name|title }}
 
                     </a>
                   </strong>
